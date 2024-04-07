@@ -11,48 +11,54 @@ import java.util.logging.Logger;
 public class LoginAction {
 
 
-
-    public  String userlogin(UserLoginParam userLoginParam){
+    public String userlogin(UserLoginParam userLoginParam) {
         String username = userLoginParam.getUsername();
         String password = userLoginParam.getPassword();
-        if (username.equals("admin")&&password.equals("123456")){
+        if (username.equals("admin") && password.equals("123456")) {
             log.info("用户登录成功");
             int sum = 0;
             for (int i = 0; i < 100; i++) {
-                sum +=i;
+                sum += i;
             }
+            doAnatherThing();
             log.info("success:sum = " + sum);
             return "登录成功";
-        }else {
-
+        } else {
+            String s = doSomething();
             log.info("用户登录失败");
-            return "登录失败";
+            return "登录失败" + s;
         }
 
     }
 
-    public String doSomething(){
+    public String doSomething() {
         int sum = 0;
         for (int i = 0; i < 100; i++) {
-            sum +=i;
+            sum += i;
         }
         log.info("err:sum = " + sum);
 
         for (int i = 0; i < 100; i++) {
-            sum +=i;
+            sum += i;
         }
         log.info("err:sum = " + sum);
 
         for (int i = 0; i < 100; i++) {
-            sum +=i;
+            sum += i * 2; //修改
+
         }
         log.info("err:sum = " + sum);
 
-        for (int i = 0; i < 100; i++) {
-            sum +=i;
+//删除
+        return "yet";
+    }
+
+    public void doAnatherThing() {
+        int sum = 0;
+        for (int i = 0; i < 50; i++) {
+            sum += i % 2;
         }
-        log.info("err:sum = " + sum);
-        return "";
+        log.info("1-50 2的余数的和：" + sum);
     }
 
 
