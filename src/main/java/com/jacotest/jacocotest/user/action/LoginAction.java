@@ -21,7 +21,7 @@ public class LoginAction {
             for (int i = 0; i < 100; i++) {
                 sum +=i;
             }
-            log.info("success:sum = " + sum);
+            log.info("success:sum = " + sum + " addClass is " + new AddAction("running").toString());
             return "登录成功";
         }else {
 
