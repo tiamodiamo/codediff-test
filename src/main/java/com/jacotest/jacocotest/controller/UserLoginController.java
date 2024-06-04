@@ -14,6 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
@@ -32,11 +36,11 @@ public class UserLoginController {
             @ApiParam(required = true, name = "用户登录")
             @RequestBody UserLoginParamVO userLoginParamVo) {
 
-//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-//
-//        // 从请求头中获取需要的信息
-//        String headerValue = request.getHeader("caseid");
-//        System.out.println("headerValue = " + headerValue);
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+
+        // 从请求头中获取需要的信息
+        String headerValue = request.getHeader("caseid");
+        System.out.println("headerValue = " + headerValue);
         UserLoginParam userLoginParam = OrikaMapperUtils.map(userLoginParamVo, UserLoginParam.class);
         String result = loginAction.userlogin(userLoginParam);
 
@@ -48,6 +52,11 @@ public class UserLoginController {
     @RequestMapping(value = "/getMessage", method = RequestMethod.GET)
 
     public ApiResponse<String> getMessage() {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+
+        // 从请求头中获取需要的信息
+        String headerValue = request.getHeader("caseid");
+        System.out.println("headerValue = " + headerValue);
 
         String result = loginAction.getMessage();
 
