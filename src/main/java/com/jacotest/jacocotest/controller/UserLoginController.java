@@ -38,9 +38,9 @@ public class UserLoginController {
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
-        // 从请求头中获取需要的信息
-        String headerValue = request.getHeader("caseid");
-        System.out.println("headerValue = " + headerValue);
+//        // 从请求头中获取需要的信息
+//        String headerValue = request.getHeader("caseid");
+//        System.out.println("headerValue = " + headerValue);
         UserLoginParam userLoginParam = OrikaMapperUtils.map(userLoginParamVo, UserLoginParam.class);
         String result = loginAction.userlogin(userLoginParam);
 
@@ -54,9 +54,7 @@ public class UserLoginController {
     public ApiResponse<String> getMessage() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
-        // 从请求头中获取需要的信息
-        String headerValue = request.getHeader("caseid");
-        System.out.println("headerValue = " + headerValue);
+
 
         String result = loginAction.getMessage();
 
