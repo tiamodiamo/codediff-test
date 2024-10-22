@@ -16,5 +16,6 @@ public class UserLoginParam {
      * 代理端口号
      */
 
+    private boolean ispass;
 
 }

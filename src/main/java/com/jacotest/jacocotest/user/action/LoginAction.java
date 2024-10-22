@@ -62,4 +62,9 @@ public class LoginAction {
     }
 
 
+    public String getMessage() {
+
+
+        return "hello world";
+    }
 }
